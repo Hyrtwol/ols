@@ -4,17 +4,17 @@ Language server for Odin. This project is still in early development.
 
 ## Table Of Contents
 
--   [Installation](#installation)
-	-   [Configuration](#Configuration)
--   [Features](#features)
--   [Clients](#clients)
-	-   [Vs Code](#vs-code)
-	-   [Sublime](#sublime)
-	-   [Vim](#vim)
-	-   [Neovim](#neovim)
-	-   [Emacs](#emacs)
-	-   [Helix](#helix)
-	-   [Micro](#micro)
+- [Installation](#installation)
+  - [Configuration](#configuration)
+- [Features](#features)
+- [Clients](#clients)
+  - [Vs Code](#vs-code)
+  - [Sublime](#sublime)
+  - [Vim](#vim)
+  - [Neovim](#neovim)
+  - [Emacs](#emacs)
+  - [Helix](#helix)
+  - [Micro](#micro)
 
 ## Installation
 
@@ -36,25 +36,24 @@ To do that you can either configure ols via an `ols.json` file (it should be loc
 
 Or you can provide the configuration via your editor of choice.
 
-
 Example of `ols.json`:
 
 ```json
 {
-	"$schema": "https://raw.githubusercontent.com/DanielGavin/ols/master/misc/ols.schema.json",
-	"collections": [
-		{ "name": "custom_collection", "path": "c:/path/to/collection" }
-	],
-	"enable_semantic_tokens": false,
-	"enable_document_symbols": true,
-	"enable_hover": true,
-	"enable_snippets": true,
-	"profile": "default",
-	"profiles": [
-		{ "name": "default", "checker_path": ["src"]},
-		{ "name": "linux_profile", "os": "linux", "checker_path": ["src/main.odin"]},
-		{ "name": "windows_profile", "os": "windows", "checker_path": ["src"]}
-	]
+    "$schema": "https://raw.githubusercontent.com/DanielGavin/ols/master/misc/ols.schema.json",
+    "collections": [
+        { "name": "custom_collection", "path": "c:/path/to/collection" }
+    ],
+    "enable_semantic_tokens": false,
+    "enable_document_symbols": true,
+    "enable_hover": true,
+    "enable_snippets": true,
+    "profile": "default",
+    "profiles": [
+        { "name": "default", "checker_path": ["src"]},
+        { "name": "linux_profile", "os": "linux", "checker_path": ["src/main.odin"]},
+        { "name": "windows_profile", "os": "windows", "checker_path": ["src"]}
+    ]
 }
 ```
 
@@ -96,10 +95,10 @@ Example:
 
 ```json
 {
-	"$schema": "https://raw.githubusercontent.com/DanielGavin/ols/master/misc/odinfmt.schema.json",
-	"character_width": 80,
-	"tabs": true,
-	"tabs_width": 4
+    "$schema": "https://raw.githubusercontent.com/DanielGavin/ols/master/misc/odinfmt.schema.json",
+    "character_width": 80,
+    "tabs": true,
+    "tabs_width": 4
 }
 ```
 
@@ -121,49 +120,58 @@ Options:
 
 Support Language server features:
 
--   Completion
--   Go to definition
--   Semantic tokens(really unstable and unfinished)
--   Document symbols
--   Signature help
--   Hover
+- Completion
+- Go to definition
+- Semantic tokens(really unstable and unfinished)
+- Document symbols
+- Signature help
+- Hover
 
 ## Clients
 
 ### VS Code
 
-Install the extension https://marketplace.visualstudio.com/items?itemName=DanielGavin.ols
+Install the extension <https://marketplace.visualstudio.com/items?itemName=DanielGavin.ols>
+
+```json
+{
+    "$schema": "https://raw.githubusercontent.com/DanielGavin/ols/master/misc/ols.schema.json",
+    "enable_document_symbols": true,
+    "enable_hover": true,
+    "enable_snippets": true
+}
+```
 
 ### Sublime
 
-Install the package https://github.com/sublimelsp/LSP
+Install the package <https://github.com/sublimelsp/LSP>
 
 Configuration of the LSP:
 
-```
+```json
 {
-	"clients": {
-		"odin": {
-			"command": [
-				"/path/to/ols"
-			],
-			"enabled": false, // true for globally-enabled, but not required due to 'Enable In Project' command
-			"selector": "source.odin",
-			"initializationOptions": {
-				"collections": [
-					{
-						"name": "collection_a",
-						"path": "/path/to/collection_a"
-					}
-				],
-				"enable_semantic_tokens": true,
-				"enable_document_symbols": true,
-				"enable_hover": true,
-				"enable_snippets": true,
-				"enable_format": true,
-			}
-		}
-	}
+    "clients": {
+        "odin": {
+            "command": [
+                "/path/to/ols"
+            ],
+            "enabled": false, // true for globally-enabled, but not required due to 'Enable In Project' command
+            "selector": "source.odin",
+            "initializationOptions": {
+                "collections": [
+                    {
+                        "name": "collection_a",
+                        "path": "/path/to/collection_a"
+                    }
+                ],
+                "enable_semantic_tokens": true,
+                "enable_document_symbols": true,
+                "enable_hover": true,
+                "enable_snippets": true,
+                "enable_format": true,
+            }
+        }
+    }
 }
 ```
 
@@ -173,14 +181,14 @@ Install [Coc](https://github.com/neoclide/coc.nvim).
 
 Configuration of the LSP:
 
-```
+```json
 {
   "languageserver": {
-	"odin": {
-	  "command": "ols",
-	  "filetypes": ["odin"],
-	  "rootPatterns": ["ols.json"]
-	}
+    "odin": {
+      "command": "ols",
+      "filetypes": ["odin"],
+      "rootPatterns": ["ols.json"]
+    }
   }
 }
 ```
@@ -190,7 +198,7 @@ Configuration of the LSP:
 Neovim has a builtin support for LSP.
 
 There is a plugin that turns easier the setup, called [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig). You can
-install it with you prefered package manager.
+install it with you preferred package manager.
 
 A simple configuration to use with Odin would be like this:
 
@@ -201,21 +209,23 @@ lspconfig.ols.setup({})
 
 ### Emacs
 
-```
+```txt
 ;; With odin-mode (https://github.com/mattt-b/odin-mode) and lsp-mode already added to your init.el of course!.
 (setq-default lsp-auto-guess-root t) ;; if you work with Projectile/project.el this will help find the ols.json file.
 (defvar lsp-language-id-configuration '((odin-mode . "odin")))
 (lsp-register-client
  (make-lsp-client :new-connection (lsp-stdio-connection "/path/to/ols/executable")
-				  :major-modes '(odin-mode)
-				  :server-id 'ols
-				  :multi-root t)) ;; This is just so lsp-mode sends the "workspaceFolders" param to the server.
+                  :major-modes '(odin-mode)
+                  :server-id 'ols
+                  :multi-root t)) ;; This is just so lsp-mode sends the "workspaceFolders" param to the server.
 (add-hook 'odin-mode-hook #'lsp)
 ```
 
 ### Helix
+
 Guide for installing helix with ols:
-https://github.com/joaocarvalhoopen/Helix_editor_for_the_Odin_programming_Language
+<https://github.com/joaocarvalhoopen/Helix_editor_for_the_Odin_programming_Language>
+
 ### Micro
 
 Install the [LSP plugin](https://github.com/AndCake/micro-plugin-lsp)
@@ -224,6 +234,6 @@ Configure the plugin in micro's settings.json:
 
 ```json
 {
-	"lsp.server": "c=clangd,go=gopls,odin=ols"
+    "lsp.server": "c=clangd,go=gopls,odin=ols"
 }
 ```
