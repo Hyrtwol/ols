@@ -1,0 +1,28 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "build ols",
+			"type": "shell",
+			"windows": {
+				"command": "call build.bat"
+			},
+			"command": "build.sh",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "build odinfmt",
+			"type": "shell",
+			"windows": {
+				"command": "call odinfmt.bat"
+			},
+			"command": "odinfmt.sh",
+			"group": {
+				"kind": "build"
+			}
+		}
+	]
+}
