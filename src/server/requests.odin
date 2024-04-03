@@ -669,7 +669,7 @@ request_initialize :: proc(
 				log.errorf("Failed to parse json %v", file)
 			}
 		} else {
-			log.errorf("Failed to read/find %v", file)
+			log.warnf("Failed to read/find %v", file)
 		}
 	}
 
