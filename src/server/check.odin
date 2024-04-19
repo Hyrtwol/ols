@@ -1,14 +1,15 @@
 package server
 
+import "base:intrinsics"
+import "base:runtime"
+
 import "core:encoding/json"
 import "core:fmt"
-import "core:intrinsics"
 import "core:log"
 import "core:mem"
 import "core:os"
 import "core:path/filepath"
 import path "core:path/slashpath"
-import "core:runtime"
 import "core:slice"
 import "core:strconv"
 import "core:strings"
@@ -268,7 +269,7 @@ check :: proc(paths: []string, writer: ^Writer, config: ^common.Config) {
 					severity = .Error,
 					range =  {
 						start =  {
-							character = error.column,
+							character = error.column - 1,
 							line = error.line - 1,
 						},
 						end = {character = 0, line = error.line},
